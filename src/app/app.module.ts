@@ -9,6 +9,7 @@ import { DetalleCotizacionComponent } from './detalle-cotizacion/detalle-cotizac
 import { ProductosComponent } from './productos/productos.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { ConfiguracionCuestionarioComponent } from './configuracion-cuestionario/configuracion-cuestionario.component';
 
 const appRoutes: Routes=[
   {
@@ -31,6 +32,10 @@ const appRoutes: Routes=[
     path:"detalle_producto",
     component: DetalleProductoComponent
   },
+  {
+    path:"configuracion_cuestionario",
+    component: ConfiguracionCuestionarioComponent
+  },
 ];
 
 @NgModule({
@@ -40,7 +45,8 @@ const appRoutes: Routes=[
     DetalleCotizacionComponent,
     ProductosComponent,
     DetalleProductoComponent,
-    ClientesComponent
+    ClientesComponent,
+    ConfiguracionCuestionarioComponent
   ],
   imports: [
     BrowserModule,
