@@ -14,6 +14,7 @@ import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { ColaboradoresComponent } from './colaboradores/colaboradores.component';
+import { OpcionesComponent } from './opciones/opciones.component';
 
 const appRoutes: Routes=[
 
@@ -53,6 +54,10 @@ const appRoutes: Routes=[
     path:"cuestionario",
     component: CuestionarioComponent
   },
+  {
+    path:"opciones",
+    component: OpcionesComponent
+  },
 ];
 
 @NgModule({
@@ -67,7 +72,8 @@ const appRoutes: Routes=[
     MenuComponent,
     PrincipalComponent,
     LoginComponent,
-    ColaboradoresComponent
+    ColaboradoresComponent,
+    OpcionesComponent
   ],
   imports: [
     BrowserModule,
