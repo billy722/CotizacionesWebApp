@@ -9,11 +9,24 @@ import { DetalleCotizacionComponent } from './detalle-cotizacion/detalle-cotizac
 import { ProductosComponent } from './productos/productos.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 import { ClientesComponent } from './clientes/clientes.component';
-import { ConfiguracionCuestionarioComponent } from './configuracion-cuestionario/configuracion-cuestionario.component';
+import { CuestionarioComponent } from './cuestionario/cuestionario.component';
+import { MenuComponent } from './menu/menu.component';
+import { PrincipalComponent } from './principal/principal.component';
+import { LoginComponent } from './login/login.component';
+import { ColaboradoresComponent } from './colaboradores/colaboradores.component';
 
 const appRoutes: Routes=[
+
   {
     path:"",
+    component: LoginComponent
+  },
+  {
+    path:"principal",
+    component: PrincipalComponent
+  },
+  {
+    path:"clientes",
     component: ClientesComponent
   },
   {
@@ -29,12 +42,16 @@ const appRoutes: Routes=[
     component: ProductosComponent
   },
   {
+    path:"colaboradores",
+    component: ColaboradoresComponent
+  },
+  {
     path:"detalle_producto",
     component: DetalleProductoComponent
   },
   {
-    path:"configuracion_cuestionario",
-    component: ConfiguracionCuestionarioComponent
+    path:"cuestionario",
+    component: CuestionarioComponent
   },
 ];
 
@@ -46,7 +63,11 @@ const appRoutes: Routes=[
     ProductosComponent,
     DetalleProductoComponent,
     ClientesComponent,
-    ConfiguracionCuestionarioComponent
+    CuestionarioComponent,
+    MenuComponent,
+    PrincipalComponent,
+    LoginComponent,
+    ColaboradoresComponent
   ],
   imports: [
     BrowserModule,

@@ -2,17 +2,44 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
 body{
-    background: #EFEFBB;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background: #757F9A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     
+}
+#card-login{
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.622);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+}
+    #card-login .card-header{
+        background-color: transparent;
+    }
+    #card-login .form-control{
+        border-radius: 0;
+        border-color: black;
+
+    }
+.input-group-text{
+    background-color: #ffd500;
+    border-radius: 0;
+}
+#boton_login{
+    background-color: #ffd500;
+    border-radius: 0;
 }
 
+
 nav{
-    border-bottom-color: #FC9D3E;
+    border-bottom-color: #ffd500;
     border-top-width: 0;
     border-left-width: 0;
     border-right-width: 0;
-    border-color: blanchedalmond;
     border-style: solid;
-    /* background-color: #FC9D3E; */
+    border-bottom-width: 5px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    margin-left: 0;
+}
+nav .nav-item{
+    /* background-color: #ffd500; */
 }
