@@ -127,7 +127,7 @@
                       <td>${{productos.valor}}</td>
                       <td>${{ (productos.valor * productos.cantidad) }}</td>
                       <td>
-                          <button class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+                          <button (click)="eliminarProductoCotizacion(productos.id_producto)" class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
                       </td>
                   </tr>
   

@@ -100,6 +100,16 @@ export class ApiService {
     let direccion = this.url+"/cotizacion_detalle?id_cotizacion="+id_cotizacion;
     return this.http.get<any>(direccion);
   }
+  
+  agregarProductoCotizacion(id_producto:string,id_cotizacion:string,valor:string){
+    let direccion = this.url+"/producto_cotizacion?id_producto="+id_producto+"&id_cotizacion="+id_cotizacion+"&valor="+valor;
+    return this.http.post<any>(direccion,"");
+  }
+
+  eliminarProductoCotizacion(id_producto:string,id_cotizacion:string){
+    let direccion = this.url+"/producto_cotizacion?id_producto="+id_producto+"&id_cotizacion="+id_cotizacion
+    return this.http.delete<any>(direccion);
+  }
 
 }
 

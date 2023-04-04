@@ -14,4 +14,9 @@ export class MenuComponent {
     localStorage.removeItem("token");
     this.router.navigate(['/']);
   }
+  
+  mostrarTodosProductos(){
+    localStorage.removeItem("cotizacion_seleccionada");
+    this.router.navigate(['/cotizaciones']);
+  }
 }

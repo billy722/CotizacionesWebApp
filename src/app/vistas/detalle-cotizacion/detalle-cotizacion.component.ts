@@ -72,5 +72,15 @@ export class DetalleCotizacionComponent implements OnInit{
 
   }
 
+  eliminarProductoCotizacion(id_producto:string){
+    
+      
+    this.api.eliminarProductoCotizacion(id_producto,this.cotizacion_seleccionada).subscribe( data => {
+        
+      this.obtenerProductosCotizacion();
+
+      });
+    
+  }
 
 }
