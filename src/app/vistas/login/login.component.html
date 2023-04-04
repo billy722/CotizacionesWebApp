@@ -1,0 +1,43 @@
+
+<div class="container mt-5">
+
+    <div class="row align-items-center">
+      
+      <div class=" d-none d-lg-block col-lg-8">
+        <img src="../assets/images/logo.png" alt="">
+      </div>
+
+      <div class="col-12 col-lg-4  mt-4">
+  
+          <div id="card-login" class="card col-12 border-warning ">
+  
+            <div class="card-body">
+              <img class="card-img-top" src="../assets/images/logo.png" width="" alt="">
+              
+              <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+                  <div class="input-group mb-3 border-warning">
+                    <span class="input-group-text " id=""><i class="bi bi-envelope-at"></i></span>
+                    <input type="text" class="form-control form-control-lg border-warning" id="correo" name="correo" value="" formControlName="correo" aria-label="correo" >
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text " id=""><i class="bi bi-key"></i></span>
+                    <input type="password" class="form-control form-control-lg border-warning" id="clave" name="clave" value="" formControlName="clave" aria-label="clave" >
+                  </div>
+                  <div class="input-group mb-3 d-grid">
+                    <button type="submit" id="boton_login" class="btn btn-lg block btn-warning "><i class="bi bi-door-open"></i> Ingresar</button>
+                  </div>
+
+                  <div class="alert alert-danger" *ngIf="errorStatus">
+                      <p> * {{errorMsj}}</p>
+                  </div>
+              </form>   
+  
+            </div>
+          </div>
+  
+      </div> 
+  
+    </div>
+
+  
+  </div>

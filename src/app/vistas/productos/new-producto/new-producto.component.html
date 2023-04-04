@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-warning"><i class="bi bi-plus-circle-fill"></i> Nuevo producto</h5>
+      <!-- <p class="card-text">Crear nuevo cliente</p> -->
+        <form action="" [formGroup]="productoForm" (ngSubmit)="crearProducto(productoForm.value)">
+          <div class="row g-2 align-items-center">
+           
+            <div class="col-2">
+              <label for="inputName" class="col-form-label" >Nombre:</label>
+            </div>
+            <div class="col-5">
+              <input type="text" id="inputName" formControlName="nombre" class="form-control form-control-sm">
+            </div>
+
+            <div class="col-2">
+              <label for="inputName" class="col-form-label">Precio:</label>
+            </div>
+            <div class="col-3">
+              <input type="text" id="inputName" formControlName="precio" class="form-control form-control-sm">
+            </div>
+
+            <div class="col-3">
+              <label for="inputName" class="col-form-label">Descripción:</label>
+            </div>
+            <div class="col-9">
+              <input type="text" id="inputName" formControlName="descripcion" class="form-control form-control-sm">
+            </div>
+
+
+
+            <div class="d-grid gap-1">
+              <button type="submit" class="btn btn-warning block btn-sm"> 
+                  <i class="bi bi-plus-square-fill"></i>
+                  Guardar
+              </button>
+            </div>
+
+          </div>
+        </form>
+    </div>
+
+  </div> <!-- FIN CARD -->

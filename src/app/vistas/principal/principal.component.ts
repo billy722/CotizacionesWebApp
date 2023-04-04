@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PrincipalComponent {
 
+ usuario = localStorage.getItem("usuario");
+
+
 }
