@@ -49,6 +49,11 @@ export class ApiService {
 
   // FUNCIONES CLIENTES
 
+  obtenerCliente(id_cliente:string){
+    let direccion = this.url+"/cliente?id_cliente="+id_cliente;
+    return this.http.get<any>(direccion);
+  }
+
   obtenerListadoClientes(){
     let direccion = this.url+"/clientes";
     return this.http.get<any>(direccion);
@@ -62,6 +67,38 @@ export class ApiService {
   crearCliente(form:any){
     let direccion = this.url+"/clientes?rut="+form.rut+"&nombre="+form.nombre+"&telefono="+form.telefono+"&correo="+form.correo;
     return this.http.post<any>(direccion,"");
+  }
+
+  //FUNCIONES COTIZACIONES
+
+  obtenerCotizacionesCliente(id_cliente:any){
+    let direccion = this.url+"/cotizaciones_cliente?id_cliente="+id_cliente;
+    return this.http.get<any>(direccion);
+  }
+
+  obtenerCotizaciones(){
+    let direccion = this.url+"/cotizaciones";
+    return this.http.get<any>(direccion);
+  }
+  
+  crearCotizacion(form:any,cliente_seleccionado:string){
+    let direccion = this.url+"/cotizaciones?descripcion="+form.descripcion+"&fecha_vencimiento="+form.fecha_vencimiento+"&id_cliente="+cliente_seleccionado;
+    return this.http.post<any>(direccion,"");
+  }
+  
+  eliminarCotizacion(id_cotizacion:string){
+    let direccion = this.url+"/cotizaciones?id_cotizacion="+id_cotizacion;
+    return this.http.delete<any>(direccion);
+  }
+  
+  obtenerDatosCotizacion(id_cotizacion:string){
+    let direccion = this.url+"/cotizacion?id_cotizacion="+id_cotizacion;
+    return this.http.get<any>(direccion);
+  }
+  
+  obtenerProductosCotizacion(id_cotizacion:string){
+    let direccion = this.url+"/cotizacion_detalle?id_cotizacion="+id_cotizacion;
+    return this.http.get<any>(direccion);
   }
 
 }

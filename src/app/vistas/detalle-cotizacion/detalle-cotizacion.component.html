@@ -9,7 +9,7 @@
         <div class="card">
 
           <div class="card-body">
-            <h3 class="card-title text-warning"><i class="bi bi-card-checklist"></i> Detalle cotizacion Nº 001</h3>
+            <h3 class="card-title text-warning"><i class="bi bi-card-checklist"></i> Detalle cotizacion Nº {{cotizacion_seleccionada}}</h3>
             <!-- <p class="card-text">Crear nuevo cliente</p> -->
 
             <form>
@@ -21,21 +21,21 @@
                             <label for="inputText" class="col-form-label">Cliente</label>
                         </div>
                         <div class="col-3">
-                            <input type="text" id="inputText" class="form-control" value="Billy Salazar Rios">
+                            <input type="text" id="inputText" class="form-control" value="{{this.datos_cliente.nombre}}">
                         </div>
                         
                         <div class="col-1">
                             <label for="inputText" class="col-form-label">Telefono</label>
                         </div>
                         <div class="col-3">
-                            <input type="text" id="inputText" class="form-control" value="+56982537240">
+                            <input type="text" id="inputText" class="form-control" value="{{this.datos_cliente.telefono}}">
                         </div>
                         
                         <div class="col-1">
                             <label for="inputText" class="col-form-label">Correo</label>
                         </div>
                         <div class="col-3">
-                            <input type="text" id="inputText" class="form-control" value="Correo">
+                            <input type="text" id="inputText" class="form-control" value="{{this.datos_cliente.correo}}">
                         </div>
                        
                         
@@ -43,7 +43,7 @@
                             <label for="inputText" class="col-form-label">Descripción</label>
                         </div>
                         <div class="col-3">
-                            <input type="text" id="inputText" class="form-control" value="Cotizacion marketing">
+                            <input type="text" id="inputText" class="form-control" value="{{this.datos_cotizacion.descripcion}}">
                         </div>
                        
 
@@ -51,7 +51,14 @@
                             <label for="inputText" class="col-form-label">Fecha</label>
                         </div>
                         <div class="col-3">
-                            <input type="text" id="inputText" class="form-control" value="22/03/2023">
+                            <input type="text" id="inputText" class="form-control" value="{{this.datos_cotizacion.fecha_creacion}}">
+                        </div>
+
+                        <div class="col-1">
+                            <label for="inputText" class="col-form-label">Fecha Vencimiento</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" id="inputText" class="form-control" value="{{this.datos_cotizacion.fecha_vencimiento}}">
                         </div>
                        
 
@@ -113,34 +120,12 @@
                   <tbody>
    
   
-                  <tr class="table-light">
-                      <td>SM-OP3</td>
-                      <td>Social Media - Orgánico y pagado -Facebook + Insgragram </td>
-                      <td>1</td>
-                      <td>$000.000</td>
-                      <td>$000.000</td>
-                      <td>
-                          <button class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
-                      </td>
-                  </tr>
-  
-                  <tr class="table-light">
-                      <td>SM-OP3</td>
-                      <td>Social Media - Orgánico y pagado -Facebook + Insgragram </td>
-                      <td>1</td>
-                      <td>$000.000</td>
-                      <td>$000.000</td>
-                      <td>
-                          <button class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
-                      </td>
-                  </tr>
-  
-                  <tr class="table-light">
-                      <td>SM-OP3</td>
-                      <td>Social Media - Orgánico y pagado -Facebook + Insgragram </td>
-                      <td>1</td>
-                      <td>$000.000</td>
-                      <td>$000.000</td>
+                  <tr *ngFor="let productos of productos_cotizacion" class="table-light">
+                      <td>{{productos.nombre}}</td>
+                      <td>{{productos.descripcion}}</td>
+                      <td>{{productos.cantidad}}</td>
+                      <td>${{productos.valor}}</td>
+                      <td>${{ (productos.valor * productos.cantidad) }}</td>
                       <td>
                           <button class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
                       </td>

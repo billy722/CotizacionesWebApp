@@ -76,11 +76,11 @@
   
                   <tr *ngFor="let cliente of clientes">
                     <td>{{cliente.nombre}}</td>
-                    <td>{{cliente.rut}}</td>
+                    <td>{{cliente.rut_cliente}}</td>
                     <td>{{cliente.telefono}}</td>
                     <td>{{cliente.correo}}</td>
                     <td>
-                        <a href="/cotizaciones/" class="btn btn-warning"><i class="bi bi-card-checklist"></i> Ver cotizaciones</a>
+                      <button (click)="mostrarCotizacionesCliente(cliente.id_cliente,cliente.nombre)" class="btn btn-warning"><i class="bi bi-card-checklist"></i> Ver cotizaciones</button>
                     </td>
                     <td>
                       <button (click)="eliminarCliente(cliente.id_cliente)" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteInterface } from 'src/app/modelos/cliente.interface';
 import { ApiService } from 'src/app/services/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clientes',
@@ -10,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ClientesComponent implements OnInit{
 
-constructor(private api:ApiService){}  
+constructor(private api:ApiService, private router:Router){}  
 
 clientes:ClienteInterface [] = []
 formularioCliente = new FormGroup({
@@ -59,6 +60,14 @@ guardarCliente(form:any){
     }
     
   });
+}
+
+
+mostrarCotizacionesCliente(id_cliente:any,nombre_cliente:any){
+  // alert("cliente: "+id_cliente);
+  localStorage.setItem("cliente_seleccionado",id_cliente);
+  localStorage.setItem("nombre_cliente_seleccionado",nombre_cliente);
+  this.router.navigate(["./cotizaciones"]);
 }
 
 }
