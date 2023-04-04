@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { ProductosInterface } from '../modelos/productos.interface';
 import { catchError, retry } from 'rxjs/operators';
+import { ClienteInterface } from '../modelos/cliente.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class ApiService {
   }
 
 
+
+  // FUNCIONES PRODUCTOS
+
   crearProducto(form:ProductosInterface,categoria:any){
       let direccion = this.url + "productos?nombre="+form.nombre+"&descripcion="+form.descripcion+"&precio="+form.precio+"&estado=1&categoria="+categoria;
       console.log("api recibe form: "+direccion);
@@ -40,4 +44,25 @@ export class ApiService {
       console.log(direccion);
       return this.http.delete(direccion);
   }
+
+
+
+  // FUNCIONES CLIENTES
+
+  obtenerListadoClientes(){
+    let direccion = this.url+"/clientes";
+    return this.http.get<any>(direccion);
+  }
+
+  eliminarCliente(id:string){
+    let direccion =  this.url+"/clientes?id="+id;
+    return this.http.delete<any>(direccion);
+  }
+
+  crearCliente(form:any){
+    let direccion = this.url+"/clientes?rut="+form.rut+"&nombre="+form.nombre+"&telefono="+form.telefono+"&correo="+form.correo;
+    return this.http.post<any>(direccion,"");
+  }
+
 }
+

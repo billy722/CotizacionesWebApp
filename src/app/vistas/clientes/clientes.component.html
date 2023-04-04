@@ -4,54 +4,57 @@
 
     <div class="row">
       
-      <div class="col-lg-6">
+      <div class="col-12 col-md-3">
         <div class="card">
           <div class="card-body">
             <h3 class="card-title text-warning"><i class="bi bi-person"></i> Clientes</h3>
             <!-- <p class="card-text">Crear nuevo cliente</p> -->
-              <form action="">
+              <form action="" [formGroup]="formularioCliente" (ngSubmit)="guardarCliente(formularioCliente.value)">
                 <div class="row g-2 align-items-center">
                  
                   <div class="col-4">
-                    <label for="inputName" class="col-form-label">Nombre del cliente:</label>
+                    <label for="inputName" class="col-form-label" >Rut:</label>
                   </div>
                   <div class="col-8">
-                    <input type="text" id="inputName" class="form-control">
+                    <input type="text" id="inputName" class="form-control" formControlName="rut">
                   </div>
-  
+
                   <div class="col-4">
-                    <label for="inputName" class="col-form-label">Telefono del cliente:</label>
+                    <label for="inputName" class="col-form-label">Nombre:</label>
                   </div>
                   <div class="col-8">
-                    <input type="text" id="inputName" class="form-control">
+                    <input type="text" id="inputName" class="form-control" formControlName="nombre">
                   </div>
-  
-  
+
                   <div class="col-4">
+                    <label for="inputName" class="col-form-label">Telefono:</label>
                   </div>
                   <div class="col-8">
-  
+                    <input type="text" id="inputName" class="form-control" formControlName="telefono">
+                  </div>
+
+                  <div class="col-4">
+                    <label for="inputName" class="col-form-label">Correo:</label>
+                  </div>
+                  <div class="col-8">
+                    <input type="text" id="inputName" class="form-control" formControlName="correo">
                   </div>
   
                   <div class="d-grid gap-1">
-                    <button type="submit" class="btn btn-warning block"> 
+                    <button type="submit" class="btn btn-outline-success block"> 
                       <i class="bi bi-plus-square-fill"></i>
-                      Guardar
-                  </button>
+                       GUARDAR CLIENTE
+                    </button>
                   </div>
+
                 </div>
               </form>
           </div>
   
         </div>
       </div>
-      
-    </div>
-  
-    <br>
-  
-    <div class="row">
-      <div class="col-12">
+
+      <div class="col-12 col-md-9">
         <div class="card" >
   
           <div class="card-body">
@@ -61,48 +64,26 @@
                 <thead class="table-warning">
                   <tr>
                     <!-- <th scope="col">Codigo</th> -->
-                    <th scope="col">Nombre del cliente</th>
-                    <th scope="col">Teléfono del cliente</th>
-                    <th scope="col">Correo del clente</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Correo</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
   
-                  <tr>
-                    <td>Billy Salazar Ríos</td>
-                    <td>+56982537240</td>
-                    <td>desarrollo@billysalazar.cl</td>
+                  <tr *ngFor="let cliente of clientes">
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.rut}}</td>
+                    <td>{{cliente.telefono}}</td>
+                    <td>{{cliente.correo}}</td>
                     <td>
                         <a href="/cotizaciones/" class="btn btn-warning"><i class="bi bi-card-checklist"></i> Ver cotizaciones</a>
                     </td>
                     <td>
-                      <button class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</button>
-                    </td>
-                  </tr>
-                 
-                  <tr>
-                    <td>Billy Salazar Ríos</td>
-                    <td>+56982537240</td>
-                    <td>desarrollo@billysalazar.cl</td>
-                    <td>
-                        <a href="/cotizaciones/" class="btn btn-warning"><i class="bi bi-card-checklist"></i> Ver cotizaciones</a>
-                    </td>
-                    <td>
-                      <button class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</button>
-                    </td>
-                  </tr>
-                 
-                  <tr>
-                    <td>Billy Salazar Ríos</td>
-                    <td>+56982537240</td>
-                    <td>desarrollo@billysalazar.cl</td>
-                    <td>
-                        <a href="/cotizaciones/" class="btn btn-warning"><i class="bi bi-card-checklist"></i> Ver cotizaciones</a>
-                    </td>
-                    <td>
-                      <button class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</button>
+                      <button (click)="eliminarCliente(cliente.id_cliente)" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</button>
                     </td>
                   </tr>
                  
@@ -113,6 +94,14 @@
   
         </div>
       </div>
+      
+    </div><!-- FIN DE ROW -->
+  
+    <!-- <br> -->
+  
+    <div class="row">
+
+
     </div>
   </div>
   
