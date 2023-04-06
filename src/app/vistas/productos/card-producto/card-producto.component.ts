@@ -14,14 +14,13 @@ export class CardProductoComponent implements OnInit{
 
   @Input() categoriaSeleccionada:string = "1";
   @Input() producto!:ProductosInterface;
+  @Input() desdeCotizacion!:boolean;
   @Output() eventoProductoEliminardo = new EventEmitter();
   
-  desdeDetalleCotizacion:boolean = false;
   cotizacion_seleccionada:string = "";
 
   ngOnInit(): void {
       if(localStorage.getItem("cotizacion_seleccionada")){
-          this.desdeDetalleCotizacion=true;
           this.cotizacion_seleccionada = <string>localStorage.getItem("cotizacion_seleccionada");
       }
   }

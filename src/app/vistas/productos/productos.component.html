@@ -57,7 +57,7 @@
 
               <div class="row">
                 <div *ngFor="let producto of productos" class="col-12 col-sm-6 col-md-3">
-                  <app-card-producto (eventoProductoEliminardo)="obtenerProductos()" [producto]="producto"></app-card-producto>
+                  <app-card-producto [desdeCotizacion]="this.desdeCotizacion" (eventoProductoEliminardo)="obtenerProductos()" [producto]="producto"></app-card-producto>
                 </div>
               </div>
                     

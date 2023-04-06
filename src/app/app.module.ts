@@ -7,9 +7,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CotizacionesComponent } from './vistas/cotizaciones/cotizaciones.component';
-import { DetalleCotizacionComponent } from './vistas/detalle-cotizacion/detalle-cotizacion.component';
+import { DetalleCotizacionComponent } from './vistas/cotizaciones/detalle-cotizacion/detalle-cotizacion.component';
 import { ProductosComponent } from './vistas/productos/productos.component';
-import { DetalleProductoComponent } from './vistas/detalle-producto/detalle-producto.component';
+import { DetalleProductoComponent } from './vistas/productos/detalle-producto/detalle-producto.component';
 import { ClientesComponent } from './vistas/clientes/clientes.component';
 import { CuestionarioComponent } from './vistas/cuestionario/cuestionario.component';
 import { MenuComponent } from './vistas/menu/menu.component';
@@ -44,6 +44,10 @@ const appRoutes: Routes=[
   },
   {
     path:"productos",
+    component: ProductosComponent
+  },
+  {
+    path:"productos/:desde_cotizacion",
     component: ProductosComponent
   },
   {
