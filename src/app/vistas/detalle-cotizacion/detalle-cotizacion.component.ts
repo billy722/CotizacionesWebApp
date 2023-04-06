@@ -18,6 +18,7 @@ export class DetalleCotizacionComponent implements OnInit{
 
   datos_cliente!:ClienteInterface;
   datos_cotizacion!:CotizacionInterface;
+  total_cotizacion:number = 0;
 
   productos_cotizacion:ProductoCotizacionInterface [] = [];
 
@@ -29,7 +30,9 @@ export class DetalleCotizacionComponent implements OnInit{
       this.obtenerClienteCotizacion();
       this.obtenerDatosCotizacion();
       this.obtenerProductosCotizacion();
-  }
+    }
+
+
 
   obtenerClienteCotizacion(){
 
@@ -64,9 +67,20 @@ export class DetalleCotizacionComponent implements OnInit{
       console.log(data);
 
        if(data.status=="ok"){
+
           this.productos_cotizacion = data.result.data;
+          this.total_cotizacion = this.productos_cotizacion.reduce((
+            acc,
+            obj,
+          ) => acc + (obj.cantidad * obj.valor),0);
+
        }else{
-        alert("error al recibir datos de cotizacion");
+          if(data.result.error_id=="204"){
+            this.productos_cotizacion = [];
+          }else{
+            alert("error al recibir datos de cotizacion");
+            console.log("Error: "+data.resulta.error_id+" mensaje: "+data.resulta.error_msg);
+          }
        }
     });
 
@@ -74,6 +88,7 @@ export class DetalleCotizacionComponent implements OnInit{
 
   eliminarProductoCotizacion(id_producto:string){
     
+    console.log(id_producto,this.cotizacion_seleccionada);
       
     this.api.eliminarProductoCotizacion(id_producto,this.cotizacion_seleccionada).subscribe( data => {
         

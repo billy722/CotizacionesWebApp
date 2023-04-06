@@ -103,9 +103,9 @@
           <hr> 
 
           <div class="container">
-              <h5 class="card-title text-warning"> <i class="bi bi-card-list"></i> Listado de productos</h5>
+              <h4 class="card-title text-warning"> <i class="bi bi-card-list"></i> Listado de productos</h4>
     
-                <table class="table table-striped">
+                <table *ngIf="productos_cotizacion.length>0" class="table table-striped">
                   <thead class="table-warning">
                     <tr>
                       <!-- <th scope="col">Codigo</th> -->
@@ -113,32 +113,48 @@
                       <th scope="col">Descripción</th>
                       <th scope="col">Cantidad</th>
                       <th scope="col">Valor unitario</th>
-                      <th scope="col">Valor total</th>
+                      <th scope="col">Total</th>
                       <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
    
   
-                  <tr *ngFor="let productos of productos_cotizacion" class="table-light">
-                      <td>{{productos.nombre}}</td>
-                      <td>{{productos.descripcion}}</td>
-                      <td>{{productos.cantidad}}</td>
-                      <td>${{productos.valor}}</td>
-                      <td>${{ (productos.valor * productos.cantidad) }}</td>
+                  <tr *ngFor="let producto of productos_cotizacion" class="table-light">
+                      <td>{{producto.nombre}}</td>
+                      <td>{{producto.descripcion}}</td>
+                      <td>{{producto.cantidad}}</td>
+                      <td>{{producto.valor | currency:'CLP':'symbol-narrow'}}</td>
+                      <td>{{(producto.valor * producto.cantidad) | currency:'CLP':'symbol-narrow'}}</td>
                       <td>
-                          <button (click)="eliminarProductoCotizacion(productos.id_producto)" class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+                          <button (click)="eliminarProductoCotizacion(producto.id_producto)" class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
                       </td>
                   </tr>
-  
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>TOTAL</td>
+                    <td>{{this.total_cotizacion | currency:'CLP':'symbol-narrow'}}</td>
+                    <td></td>
+                  </tr>
                    
                   </tbody>
                 </table>
+
+                <div *ngIf="productos_cotizacion.length<1" class="row">
+                    <div class="col-12">
+                        <br>
+                        <h5 class="">No se han agregado productos a esta cotización.</h5>
+                        <br>
+                    </div>
+                </div>
          </div>
 
-        </div>
+     </div><!-- FIN DE CARD GENERAL -->
 
-
+     <br>
+     <br>
 
       </div>
     </div>

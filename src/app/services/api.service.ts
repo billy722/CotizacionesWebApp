@@ -50,64 +50,64 @@ export class ApiService {
   // FUNCIONES CLIENTES
 
   obtenerCliente(id_cliente:string){
-    let direccion = this.url+"/cliente?id_cliente="+id_cliente;
+    let direccion = this.url+"cliente?id_cliente="+id_cliente;
     return this.http.get<any>(direccion);
   }
 
   obtenerListadoClientes(){
-    let direccion = this.url+"/clientes";
+    let direccion = this.url+"clientes";
     return this.http.get<any>(direccion);
   }
 
   eliminarCliente(id:string){
-    let direccion =  this.url+"/clientes?id="+id;
+    let direccion =  this.url+"clientes?id="+id;
     return this.http.delete<any>(direccion);
   }
 
   crearCliente(form:any){
-    let direccion = this.url+"/clientes?rut="+form.rut+"&nombre="+form.nombre+"&telefono="+form.telefono+"&correo="+form.correo;
+    let direccion = this.url+"clientes?rut="+form.rut+"&nombre="+form.nombre+"&telefono="+form.telefono+"&correo="+form.correo;
     return this.http.post<any>(direccion,"");
   }
 
   //FUNCIONES COTIZACIONES
 
   obtenerCotizacionesCliente(id_cliente:any){
-    let direccion = this.url+"/cotizaciones_cliente?id_cliente="+id_cliente;
+    let direccion = this.url+"cotizaciones_cliente?id_cliente="+id_cliente;
     return this.http.get<any>(direccion);
   }
 
   obtenerCotizaciones(){
-    let direccion = this.url+"/cotizaciones";
+    let direccion = this.url+"cotizaciones";
     return this.http.get<any>(direccion);
   }
   
   crearCotizacion(form:any,cliente_seleccionado:string){
-    let direccion = this.url+"/cotizaciones?descripcion="+form.descripcion+"&fecha_vencimiento="+form.fecha_vencimiento+"&id_cliente="+cliente_seleccionado;
+    let direccion = this.url+"cotizaciones?descripcion="+form.descripcion+"&fecha_vencimiento="+form.fecha_vencimiento+"&id_cliente="+cliente_seleccionado;
     return this.http.post<any>(direccion,"");
   }
   
   eliminarCotizacion(id_cotizacion:string){
-    let direccion = this.url+"/cotizaciones?id_cotizacion="+id_cotizacion;
+    let direccion = this.url+"cotizaciones?id_cotizacion="+id_cotizacion;
     return this.http.delete<any>(direccion);
   }
   
   obtenerDatosCotizacion(id_cotizacion:string){
-    let direccion = this.url+"/cotizacion?id_cotizacion="+id_cotizacion;
+    let direccion = this.url+"cotizacion?id_cotizacion="+id_cotizacion;
     return this.http.get<any>(direccion);
   }
   
   obtenerProductosCotizacion(id_cotizacion:string){
-    let direccion = this.url+"/cotizacion_detalle?id_cotizacion="+id_cotizacion;
+    let direccion = this.url+"cotizacion_detalle?id_cotizacion="+id_cotizacion;
     return this.http.get<any>(direccion);
   }
   
   agregarProductoCotizacion(id_producto:string,id_cotizacion:string,valor:string){
-    let direccion = this.url+"/producto_cotizacion?id_producto="+id_producto+"&id_cotizacion="+id_cotizacion+"&valor="+valor;
+    let direccion = this.url+"producto_cotizacion?id_producto="+id_producto+"&id_cotizacion="+id_cotizacion+"&valor="+valor;
     return this.http.post<any>(direccion,"");
   }
 
   eliminarProductoCotizacion(id_producto:string,id_cotizacion:string){
-    let direccion = this.url+"/producto_cotizacion?id_producto="+id_producto+"&id_cotizacion="+id_cotizacion
+    let direccion = this.url+"producto_cotizacion?id_producto="+id_producto+"&id_cotizacion="+id_cotizacion
     return this.http.delete<any>(direccion);
   }
 

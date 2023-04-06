@@ -102,8 +102,8 @@
                   <tr *ngFor="let cotizacion of cotizaciones" class="table-success">
                     <td>{{cotizacion.id_cotizacion}}</td>
                     <td>{{cotizacion.descripcion}}</td>
-                    <td>{{cotizacion.fecha_creacion}}</td>
-                    <td>{{cotizacion.fecha_vencimiento}}</td>
+                    <td>{{cotizacion.fecha_creacion  | date:'d-MM-y'}}</td>
+                    <td>{{cotizacion.fecha_vencimiento | date:'d-MM-y'}}</td>
                     <td>{{cotizacion.id_cliente}}</td>
                     <td>{{cotizacion.nombre_cliente}}</td>
                     <td>
