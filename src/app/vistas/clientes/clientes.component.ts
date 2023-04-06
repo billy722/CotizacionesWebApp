@@ -41,7 +41,9 @@ eliminarCliente(id:string){
   this.api.eliminarCliente(id).subscribe(data => {
     // console.log(data)
     if(data.status=="ok"){
-      this.obtenerClientes();
+      // this.obtenerClientes();
+      this.clientes = this.clientes.filter(c => c.id_cliente != id);
+      
     }else{
       alert("Error al eliminar");
     }

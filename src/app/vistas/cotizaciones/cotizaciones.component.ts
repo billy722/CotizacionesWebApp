@@ -74,7 +74,8 @@ guardarCotizacion(form:any){
 eliminarCotizacion(id_cotizacion:string){
   this.api.eliminarCotizacion(id_cotizacion).subscribe(data => {
     if(data.status=="ok"){
-        this.obtenerCotizacionesCliente();
+        // this.obtenerCotizacionesCliente();
+        this.cotizaciones = this.cotizaciones.filter(c => c.id_cotizacion != id_cotizacion);
     }else{
       alert("Error al eliminar cotizacion");
     }

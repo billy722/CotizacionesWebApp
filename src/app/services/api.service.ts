@@ -6,6 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import { ProductosInterface } from '../modelos/productos.interface';
 import { catchError, retry } from 'rxjs/operators';
 import { ClienteInterface } from '../modelos/cliente.interface';
+import { ColaboradorInterface } from '../modelos/colaborador.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -111,5 +112,22 @@ export class ApiService {
     return this.http.delete<any>(direccion);
   }
 
+
+  //FUNCIONES COLABORADORES
+
+  obtenerColaboradores(){
+    let direccion = this.url+"colaboradores";
+    return this.http.get<any>(direccion);
+  }
+
+  crearColaborador(form:any){
+    let direccion = this.url+"colaboradores?nombre="+form.nombre+"&telefono="+form.telefono+"&correo="+form.correo+"&funciones="+form.funciones;
+    return this.http.post<any>(direccion,"");
+  }
+
+  eliminarColaborador(id_colaborador:string){
+    let direccion = this.url+"colaboradores?id_colaborador="+id_colaborador;
+    return this.http.delete<any>(direccion);
+  }
 }
 

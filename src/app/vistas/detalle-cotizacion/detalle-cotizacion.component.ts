@@ -16,8 +16,8 @@ export class DetalleCotizacionComponent implements OnInit{
   cotizacion_seleccionada:string = "";
   cliente_seleccionado:string = "";
 
-  datos_cliente!:ClienteInterface;
-  datos_cotizacion!:CotizacionInterface;
+  datos_cliente:ClienteInterface = {"nombre":"...","rut_cliente":"...","id_cliente":"...","telefono":"...","correo":"..."};
+  datos_cotizacion:CotizacionInterface = {"descripcion":"...","fecha_creacion":"...","fecha_vencimiento":"...","estado":"...","id_cliente":"...","id_cotizacion":"...","nombre_cliente":"...","rut_cliente":"..."};
   total_cotizacion:number = 0;
 
   productos_cotizacion:ProductoCotizacionInterface [] = [];
@@ -92,7 +92,8 @@ export class DetalleCotizacionComponent implements OnInit{
       
     this.api.eliminarProductoCotizacion(id_producto,this.cotizacion_seleccionada).subscribe( data => {
         
-      this.obtenerProductosCotizacion();
+      // this.obtenerProductosCotizacion();
+      this.productos_cotizacion =  this.productos_cotizacion.filter(c => c.id_cotizacion!=this.cotizacion_seleccionada || c.id_producto!=id_producto);
 
       });
     

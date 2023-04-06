@@ -1,3 +1,109 @@
 <app-menu></app-menu>
 
-<p>colaboradores works!</p>
+<div class="container mt-4">
+
+    <div class="row">
+      
+      <div class="col-12 col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title text-warning"><i class="bi bi-person"></i> Colaboradres</h3>
+            <!-- <p class="card-text">Crear nuevo cliente</p> -->
+              <form action="" [formGroup]="formularioColaboradores" (ngSubmit)="guardarColaborador(formularioColaboradores.value)">
+                <div class="row g-2 align-items-center">
+
+                  <div class="col-4">
+                    <label for="inputName" class="col-form-label">Nombre:</label>
+                  </div>
+                  <div class="col-8">
+                    <input type="text" id="inputName" class="form-control" formControlName="nombre">
+                  </div>
+
+                  <div class="col-4">
+                    <label for="inputName" class="col-form-label">Telefono:</label>
+                  </div>
+                  <div class="col-8">
+                    <input type="text" id="inputName" class="form-control" formControlName="telefono">
+                  </div>
+
+                  <div class="col-4">
+                    <label for="inputName" class="col-form-label">Correo:</label>
+                  </div>
+                  <div class="col-8">
+                    <input type="text" id="inputName" class="form-control" formControlName="correo">
+                  </div>
+
+                  <div class="col-4">
+                    <label for="inputName" class="col-form-label">Funciones:</label>
+                  </div>
+                  <div class="col-8">
+                    <input type="text" id="inputName" class="form-control" formControlName="funciones">
+                  </div>
+  
+                  <div class="d-grid gap-1">
+                    <button type="submit" class="btn btn-outline-success block"> 
+                      <i class="bi bi-plus-square-fill"></i>
+                       GUARDAR COLABORADOR
+                    </button>
+                  </div>
+
+                </div>
+              </form>
+          </div>
+  
+        </div>
+      </div>
+
+      <div class="col-12 col-md-9">
+        <div class="card" >
+  
+          <div class="card-body">
+            <h5 class="card-title text-warning"> <i class="bi bi-card-list"></i> Listado de Colaboradores</h5>
+  
+              <table class="table table-striped">
+                <thead class="table-warning">
+                  <tr>
+                    <!-- <th scope="col">Codigo</th> -->
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Funciones</th>
+                    <th scope="col">Estado</th>
+                    <!-- <th scope="col"></th> -->
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+  
+                  <tr *ngFor="let colaborador of colaboradores">
+                    <td>{{colaborador.nombre}}</td>
+                    <td>{{colaborador.telefono}}</td>
+                    <td>{{colaborador.correo}}</td>
+                    <td>{{colaborador.funciones}}</td>
+                    <td>{{colaborador.estado}}</td>
+                    <!-- <td>
+                      <button (click)="trabajosColaborador()" class="btn btn-warning"><i class="bi bi-card-checklist"></i> Ver cotizaciones</button>
+                    </td> -->
+                    <td>
+                      <button (click)="eliminarColaborador(colaborador.id_colaborador)" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</button>
+                    </td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+  
+         </div>
+  
+        </div>
+      </div>
+      
+    </div><!-- FIN DE ROW -->
+  
+    <!-- <br> -->
+  
+    <div class="row">
+
+
+    </div>
+  </div>
+  
