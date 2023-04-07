@@ -23,6 +23,7 @@ import { PreguntasComponent } from './vistas/cuestionario/preguntas/preguntas.co
 import { ProblematicasComponent } from './vistas/cuestionario/problematicas/problematicas.component';
 import { AlternativasComponent } from './vistas/cuestionario/alternativas/alternativas.component';
 import { CardProblematicaComponent } from './vistas/cuestionario/card-problematica/card-problematica.component';
+import { ResponderCuestionarioComponent } from './vistas/responder-cuestionario/responder-cuestionario.component';
 
 const appRoutes: Routes=[
 
@@ -63,8 +64,12 @@ const appRoutes: Routes=[
     component: DetalleProductoComponent
   },
   {
-    path:"cuestionario",
+    path:"configurar_cuestionario",
     component: CuestionarioComponent
+  },
+  {
+    path:"cuestionario",
+    component: ResponderCuestionarioComponent
   },
   {
     path:"opciones",
@@ -91,7 +96,8 @@ const appRoutes: Routes=[
     PreguntasComponent,
     ProblematicasComponent,
     AlternativasComponent,
-    CardProblematicaComponent
+    CardProblematicaComponent,
+    ResponderCuestionarioComponent
   ],
   imports: [
     BrowserModule,
