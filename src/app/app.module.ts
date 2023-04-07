@@ -22,6 +22,7 @@ import { NewProductoComponent } from './vistas/productos/new-producto/new-produc
 import { PreguntasComponent } from './vistas/cuestionario/preguntas/preguntas.component';
 import { ProblematicasComponent } from './vistas/cuestionario/problematicas/problematicas.component';
 import { AlternativasComponent } from './vistas/cuestionario/alternativas/alternativas.component';
+import { CardProblematicaComponent } from './vistas/cuestionario/card-problematica/card-problematica.component';
 
 const appRoutes: Routes=[
 
@@ -89,7 +90,8 @@ const appRoutes: Routes=[
     NewProductoComponent,
     PreguntasComponent,
     ProblematicasComponent,
-    AlternativasComponent
+    AlternativasComponent,
+    CardProblematicaComponent
   ],
   imports: [
     BrowserModule,
