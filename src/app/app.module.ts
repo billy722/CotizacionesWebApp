@@ -55,7 +55,7 @@ const appRoutes: Routes=[
     component: ColaboradoresComponent
   },
   {
-    path:"detalle_producto",
+    path:"detalle_producto/:id_producto",
     component: DetalleProductoComponent
   },
   {

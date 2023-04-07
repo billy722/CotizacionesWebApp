@@ -4,18 +4,33 @@
   <div class="col mt-4">
     <div class="card">
       <div class="card-header bg-warning">
-        <h5 class="card-title"><i class="bi bi-cart-fill"></i> {{producto.nombre}}</h5>
+        <div class="row">
+          
+          <div class="col-9">
+            <h5 class="card-title"><i class="bi bi-cart-fill"></i> {{producto.nombre}}</h5>
+
+          </div>
+          
+          <div class="col-3">
+            <a href="/detalle_producto/{{producto.id_producto}}" class="col-4 btn btn-outline-dark"><i class="bi bi-eye-fill"></i></a>
+            <button *ngIf="desdeCotizacion" (click)="agregarProductoCotizacion(producto.id_producto,producto.precio)" href="#" class="col-4 btn btn-outline-dark"><i class="bi bi-cart"></i> </button>
+            <button *ngIf="!desdeCotizacion" (click)="deleteProduct(producto.id_producto)" class="col-4 btn btn-outline-dark"><i class="bi bi-trash"></i></button>
+          </div>
+
+        </div>
       </div>
       <div class="card-body">
-        <p class="card-text">{{producto.descripcion}}</p>
-        <hr>
-        <p class="card-text">{{producto.precio | currency:'CLP':'symbol-narrow'}}</p>
-      </div>
-      <div class="card-body d-grid gap-1">
-          <button *ngIf="desdeCotizacion" (click)="agregarProductoCotizacion(producto.id_producto,producto.precio)" href="#" class="btn btn-warning"><i class="col-6 bi bi-cart"></i> Agregar a cotizacion</button>
-          <a href="/detalle_producto" class="btn btn-primary"><i class="col-6 bi bi-eye-fill"></i> Ver producto</a>
-          <button *ngIf="!desdeCotizacion" (click)="deleteProduct(producto.id_producto)" class="btn btn-danger"><i class="col-6 bi bi-trash"></i> ELIMINAR</button>
+        <div class="row">
+          
+          <div class="col-9">
+            <p class="card-text">{{producto.descripcion}}</p>
+            <hr>
+            <p class="card-text">VALOR: {{producto.precio | currency:'CLP':'symbol-narrow'}}</p>
+          </div>
+
         </div>
+
+      </div>
     </div>
   </div>
   

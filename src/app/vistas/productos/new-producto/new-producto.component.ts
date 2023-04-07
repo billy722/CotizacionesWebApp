@@ -17,7 +17,9 @@ export class NewProductoComponent {
   productoForm =  new FormGroup({
     nombre : new FormControl('', Validators.required),
     descripcion : new FormControl('', Validators.required),
-    precio : new FormControl('', Validators.required)
+    precio : new FormControl('', Validators.required),
+    tareas : new FormControl('', Validators.required),
+    tiempo_ejecucion : new FormControl('', Validators.required)
   });
 
 

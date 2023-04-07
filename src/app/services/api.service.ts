@@ -29,9 +29,15 @@ export class ApiService {
   // FUNCIONES PRODUCTOS
 
   crearProducto(form:ProductosInterface,categoria:any){
-      let direccion = this.url + "productos?nombre="+form.nombre+"&descripcion="+form.descripcion+"&precio="+form.precio+"&estado=1&categoria="+categoria;
+      let direccion = this.url + "productos?nombre="+form.nombre+"&descripcion="+form.descripcion+"&tareas="+form.tareas+"&precio="+form.precio+"&categoria="+categoria+"&tiempo_ejecucion="+form.tiempo_ejecucion;
       console.log("api recibe form: "+direccion);
       return this.http.post<ProductosInterface>(direccion,"");
+  }
+
+  obtenerProducto(id_producto:any){
+      let direccion = this.url + "producto?id_producto="+id_producto;
+      console.log(direccion);
+      return this.http.get<any>(direccion);
   }
 
   obtenerProductosCategoria(categoria:any){

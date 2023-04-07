@@ -6,4 +6,6 @@ export interface ProductosInterface{
     precio:string;
     estado:string;
     categoria:string;
+    tareas:string;
+    tiempo_ejecucion:string;
 }

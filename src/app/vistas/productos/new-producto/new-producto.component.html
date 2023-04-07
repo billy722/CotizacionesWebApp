@@ -5,10 +5,10 @@
         <form action="" [formGroup]="productoForm" (ngSubmit)="crearProducto(productoForm.value)">
           <div class="row g-2 align-items-center">
            
-            <div class="col-2">
+            <div class="col-3">
               <label for="inputName" class="col-form-label" >Nombre:</label>
             </div>
-            <div class="col-5">
+            <div class="col-4">
               <input type="text" id="inputName" formControlName="nombre" class="form-control form-control-sm">
             </div>
 
@@ -19,11 +19,25 @@
               <input type="text" id="inputName" formControlName="precio" class="form-control form-control-sm">
             </div>
 
-            <div class="col-3">
+            <div class="col-12">
               <label for="inputName" class="col-form-label">Descripción:</label>
             </div>
-            <div class="col-9">
-              <input type="text" id="inputName" formControlName="descripcion" class="form-control form-control-sm">
+            <div class="col-12">
+              <textarea id="inputName" formControlName="descripcion" class="form-control form-control-sm"></textarea>
+            </div>
+
+            <div class="col-12">
+              <label for="inputName" class="col-form-label">Tareas:</label>
+            </div>
+            <div class="col-12">
+              <textarea id="inputName" formControlName="tareas" class="form-control form-control-sm"></textarea>
+            </div>
+
+            <div class="col-6">
+              <label for="inputName" class="col-form-label">Tiempo ejecución:</label>
+            </div>
+            <div class="col-6">
+              <input type="number" id="inputName" formControlName="tiempo_ejecucion" class="form-control form-control-sm">
             </div>
 
 
