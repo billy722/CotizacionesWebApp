@@ -156,5 +156,20 @@ export class ApiService {
     return this.http.post<any>(direccion,"");
   }
 
+  //FUNCIONES PROBLEMATICAS
+
+  obtenerProblematicas(){
+    let direccion = this.url+"problematicas";
+    return this.http.get<any>(direccion);
+  }
+  crearProblematicas(form:any){
+    let direccion = this.url+"problematicas?descripcion="+form.descripcion;
+    return this.http.post<any>(direccion,"");
+  }
+  eliminarProblematicas(id_problematica:string){
+    let direccion = this.url+"problematicas?id_problematica="+id_problematica;
+    return this.http.delete<any>(direccion);
+  }
+
 }
 
