@@ -147,5 +147,13 @@ export class ApiService {
     return this.http.post<any>(direccion,"");
   }
 
+
+  //FUNCIONES ALTERNATIVAS
+
+  obtenerAlternativas(id_pregunta:string){
+    let direccion = this.url = "alternativas?id_pregunta="+id_pregunta;
+    return this.http.post<any>(direccion,"");
+  }
+
 }
 
