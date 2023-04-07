@@ -135,5 +135,17 @@ export class ApiService {
     let direccion = this.url+"colaboradores?id_colaborador="+id_colaborador;
     return this.http.delete<any>(direccion);
   }
+
+  // SECCION PREGUNTAS
+  obtenerPreguntas(){
+    let direccion = this.url+"preguntas";
+    return this.http.get<any>(direccion);
+  }
+
+  crearPregunta(form:any){
+    let direccion = this.url+"preguntas?pregunta="+form.pregunta;
+    return this.http.post<any>(direccion,"");
+  }
+
 }
 

@@ -19,6 +19,9 @@ import { ColaboradoresComponent } from './vistas/colaboradores/colaboradores.com
 import { OpcionesComponent } from './vistas/opciones/opciones.component';
 import { CardProductoComponent } from './vistas/productos/card-producto/card-producto.component';
 import { NewProductoComponent } from './vistas/productos/new-producto/new-producto.component';
+import { PreguntasComponent } from './vistas/cuestionario/preguntas/preguntas.component';
+import { ProblematicasComponent } from './vistas/cuestionario/problematicas/problematicas.component';
+import { AlternativasComponent } from './vistas/cuestionario/alternativas/alternativas.component';
 
 const appRoutes: Routes=[
 
@@ -83,7 +86,10 @@ const appRoutes: Routes=[
     ColaboradoresComponent,
     OpcionesComponent,
     CardProductoComponent,
-    NewProductoComponent
+    NewProductoComponent,
+    PreguntasComponent,
+    ProblematicasComponent,
+    AlternativasComponent
   ],
   imports: [
     BrowserModule,

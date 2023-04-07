@@ -1,0 +1,91 @@
+<!-- CARD RESPUESTAS -->
+
+
+<div class="card border-dark">
+    <div class="card-header bg-warning">
+        <h5 class="card-title text-dark"><i class="bi bi-question-circle"></i> Crear pregunta</h5>
+    </div>
+    <div class="card-body">
+        <!-- <p class="card-text">Crear nuevo cliente</p> -->
+        <form action="" [formGroup]="formularioPregunta" (ngSubmit)="guardarPregunta(formularioPregunta.value)">
+            <div class="row g-2 align-items-center">
+<!--             
+                <div class="col-2">
+                    <label for="inputName" class="col-form-label" >Pregunta:</label>
+                </div> -->
+                <div class="col-9">
+                    <input type="text" placeholder="Ingrese pregunta" id="inputName" class="form-control" formControlName="pregunta">
+                </div>
+
+                <div class="col-3 ">
+                    <button type="submit" class="btn btn-warning block"> 
+                    <i class="bi bi-plus-square-fill"></i>
+                        Guardar
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card mt-5 ">
+    <div class="card-header bg-warning">
+        <h5 class=""><i class="bi bi-question-circle"></i> Listado preguntas</h5>
+    </div>
+    <div class="card-body">
+    
+        <div class="row">
+
+            <!-- PRODUCTO 1-->
+                <div class="col-12">
+                    
+                    <div *ngFor="let pregunta of preguntas" class="card mt-4 bg-primary text-white">
+                        <div class="card-header ">
+                            <h5> * {{pregunta.pregunta}}</h5> 
+                        </div>
+                        <div class="card-body">
+                            <!-- <p class="card-title">Etapas:</p> -->
+
+                            <div class="row">
+                                
+                                <!-- ALTERNATIVAS -->
+                                <div class="col-12">
+                                    <div class="card  border-success">
+                                        <div class="card-header">
+                                        <div class="card-title col-12">
+                                            <h5 class="text-dark">a: Correo electronico</h5>
+                                        </div>
+                                        </div>
+                                        <div class="card-body">
+
+                                            <!-- ETAPAS ALTERNATIVA -->
+                                            <div class="row p-0">
+
+                                                <div class="col-3">
+                                                    <div class="card">
+                                                        <div class="card-header text-bg-warning">
+                                                            <div class="card-title">P1</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> <!-- FIN ROW PRODUCTOS -->
+        
+    </div>
+</div>
+<!-- FIN SECCION RESPUESTAS -->
