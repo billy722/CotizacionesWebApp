@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./preguntas.component.css']
 })
 export class PreguntasComponent {
-
+alternativa_seleccionada!:string;
 preguntas:PreguntaInterface [] = [];
 
 constructor(private api:ApiService){
@@ -47,6 +47,10 @@ guardarPregunta(form:any){
     }
 
   });
+}
+
+seleccionarAlternativa($event:string){
+  this.alternativa_seleccionada = $event;
 }
 
 

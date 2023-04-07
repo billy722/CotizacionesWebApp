@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AlternativaInterface } from 'src/app/modelos/alternativa.interface';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -10,7 +10,11 @@ import { ApiService } from 'src/app/services/api.service';
 export class AlternativasComponent implements OnInit{
 
 @Input() id_pregunta!:string;
+@Input() alternativa_seleccionada!:string;
+@Output() eventoAlternativaSeleccionada = new EventEmitter<string>();
 alternativas:AlternativaInterface [] = [];
+
+
 
   constructor(private api:ApiService){
   }
@@ -33,5 +37,9 @@ alternativas:AlternativaInterface [] = [];
     }); 
   }
 
+  seleccionarAlternativa(id_alternativa:string){
+    // this.alternativa_seleccionada = id_alternativa;
+    this.eventoAlternativaSeleccionada.emit(id_alternativa);
+  }
 
 }

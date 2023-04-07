@@ -51,7 +51,7 @@
                                 
                                 <!-- ALTERNATIVAS -->
                                 <div class="col-12">
-                                    <app-alternativas [id_pregunta]="pregunta.id_pregunta" ></app-alternativas>
+                                    <app-alternativas (eventoAlternativaSeleccionada)="seleccionarAlternativa($event)" [alternativa_seleccionada]="alternativa_seleccionada" [id_pregunta]="pregunta.id_pregunta" ></app-alternativas>
                                 </div>
                                 
 

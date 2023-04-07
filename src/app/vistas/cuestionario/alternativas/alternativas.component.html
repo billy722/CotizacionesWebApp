@@ -1,5 +1,6 @@
-<div *ngFor="let alternativa of alternativas" class="card border-dark mt-2">
-    <div class="card-header">
+
+<div (click)="seleccionarAlternativa(alternativa.id_alternativa)" *ngFor="let alternativa of alternativas" class="card border-dark mt-2" [ngClass]="{'bg-danger':alternativa_seleccionada===alternativa.id_alternativa}" >
+    <div  class="card-header">
     <div class="card-title col-12">
         <h5 class="text-dark">{{alternativa.texto_alternativa}}</h5>
     </div>
