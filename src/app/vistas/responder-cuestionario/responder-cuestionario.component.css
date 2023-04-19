@@ -1,0 +1,6 @@
+.alternativa{
+    text-decoration: none;   
+}
+.alternativa :hover{
+    background-color: rgb(120, 120, 233) !important;
+}
