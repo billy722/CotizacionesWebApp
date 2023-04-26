@@ -1,48 +1,65 @@
 <!-- CARD RESPUESTAS -->
 
 
-<div class="card border-dark">
-    <div class="card-header ">
-        <h5 class="card-title text-dark"><i class="bi bi-question-circle"></i> Crear pregunta</h5>
-    </div>
-    <div class="card-body">
-        <!-- <p class="card-text">Crear nuevo cliente</p> -->
-        <form action="" [formGroup]="formularioPregunta" (ngSubmit)="guardarPregunta(formularioPregunta.value)">
-            <div class="row g-2 align-items-center">
-<!--             
-                <div class="col-2">
-                    <label for="inputName" class="col-form-label" >Pregunta:</label>
-                </div> -->
-                <div class="col-9">
-                    <input type="text" placeholder="Ingrese pregunta" id="inputName" class="form-control" formControlName="pregunta">
-                </div>
 
-                <div class="col-3 ">
-                    <button type="submit" class="btn btn-warning block"> 
-                    <i class="bi bi-plus-square-fill"></i>
-                        Guardar
-                    </button>
-                </div>
 
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="card mt-5 border-dark">
+<div class="card bg-primary text-white">
     <div class="card-header">
-        <h5 class=""><i class="bi bi-question-circle"></i> Listado preguntas</h5>
+        <h3 class=""><i class="bi bi-question-circle"></i> Preguntas</h3>
     </div>
     <div class="card-body">
     
+
+        <div class="card border-dark">
+            <div class="card-header ">
+                <h5 class="card-title text-dark"><i class="bi bi-plus-square-fill"></i> Crear pregunta</h5>
+            </div>
+            <div class="card-body">
+                <!-- <p class="card-text">Crear nuevo cliente</p> -->
+                <form action="" [formGroup]="formularioPregunta" (ngSubmit)="guardarPregunta(formularioPregunta.value)">
+                    <div class="row g-2 align-items-center">
+        <!--             
+                        <div class="col-2">
+                            <label for="inputName" class="col-form-label" >Pregunta:</label>
+                        </div> -->
+                        <div class="col-10">
+                            <input type="text" placeholder="Ingrese pregunta" id="inputName" class="form-control" formControlName="pregunta">
+                        </div>
+        
+                        <div class="col-2 ">
+                            <button type="submit" class="btn btn-primary block"> 
+                            <i class="bi bi-plus-square-fill"></i>
+                                Guardar
+                            </button>
+                        </div>
+        
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
         <div class="row">
 
             <!-- PRODUCTO 1-->
                 <div class="col-12">
                     
-                    <div *ngFor="let pregunta of preguntas" class="card mt-4 bg-primary text-white">
+                    <div *ngFor="let pregunta of preguntas" class="card mt-4 ">
                         <div class="card-header ">
-                            <h5> * {{pregunta.pregunta}}</h5> 
+                            
+                            <div class="row">
+                                <div class="col-9">
+                                    <h5 class="text-dark"> {{pregunta.pregunta}}</h5> 
+                                </div>
+                                <div class="col-1">
+                                    <button (click)="eliminarPregunta(pregunta.id_pregunta)" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-sm btn-outline-success" ><i class="bi bi-plus-square-fill"></i> Alt</button>
+                                </div>
+
+                            </div>
+
                         </div>
                         <div class="card-body">
                             <!-- <p class="card-title">Etapas:</p> -->
@@ -68,3 +85,31 @@
     </div>
 </div>
 <!-- FIN SECCION RESPUESTAS -->
+
+
+<!-- MODAL ALTERNATIVAS -->
+
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

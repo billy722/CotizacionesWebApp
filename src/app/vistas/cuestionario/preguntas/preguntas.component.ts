@@ -53,5 +53,17 @@ seleccionarAlternativa($event:string){
   this.alternativa_seleccionada = $event;
 }
 
+eliminarPregunta(id_pregunta:any){
+  this.api.eliminarPregunta(id_pregunta).subscribe(data => {
+    
+    if(data.status == "ok"){
+        this.preguntas = this.preguntas.filter(c => c.id_pregunta != id_pregunta);
+    }else{
+        console.log("error al eliminar pregunta: error_id:"+data.result.error_id+" error_msg: "+data.result.error_msg);
+    }
+
+  });
+}
+
 
 }

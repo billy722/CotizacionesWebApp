@@ -36,12 +36,21 @@ export class ProblematicasComponent implements OnInit{
     });
   }
   
+  eventoEliminarProblematica(id:any){
+      // alert("se eliminó el "+id_problematica);
+      this.problematicas = this.problematicas.filter(c => c.id_problematica != id);
+  }
+
   obtenerProblematicas(){
     this.api.obtenerProblematicas().subscribe(data => {
       if(data.status == "ok"){
           this.problematicas = data.result.data;
       }else{
-          console.log("error: "+data.result.error_id+" msg: "+data.result.error_msg);
+          if(data.result.error_id == "204"){
+            this.problematicas = [];
+          }else{
+            console.log("error: "+data.result.error_id+" msg: "+data.result.error_msg);
+          }
       }
     });
   }

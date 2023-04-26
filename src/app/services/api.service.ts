@@ -147,6 +147,11 @@ export class ApiService {
     return this.http.post<any>(direccion,"");
   }
 
+  eliminarPregunta(id_pregunta:any){
+    let direccion = this.url+"preguntas?id_pregunta="+id_pregunta;
+    return this.http.delete<any>(direccion);
+  }
+
 
   //FUNCIONES ALTERNATIVAS
 

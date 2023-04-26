@@ -18,7 +18,8 @@ export class CardProblematicaComponent{
   eliminarProblematica(id_problematica:string){
     this.api.eliminarProblematicas(id_problematica).subscribe(data => {
       if(data.status == "ok"){
-          this.eventoEliminarProblematica.emit();
+        // alert("eliminado");
+          this.eventoEliminarProblematica.emit(id_problematica);
       }else{
           console.log("error al eliminar problematica: "+data.result.error_msg);
       }
